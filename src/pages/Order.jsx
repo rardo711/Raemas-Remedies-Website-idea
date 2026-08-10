@@ -180,7 +180,7 @@ export function Order() {
       <section className="grain bg-[radial-gradient(ellipse_at_50%_-10%,#F7F1E6_0%,#EFE7D8_70%)]">
         <div className="mx-auto max-w-3xl px-4 py-14 text-center sm:px-6 sm:py-16">
           <p className="eyebrow">Local pickup or shipping</p>
-          <h1 className="mt-3 font-serif text-5xl sm:text-6xl">
+          <h1 className="mt-3 font-serif text-4xl sm:text-5xl">
             Place an Order
           </h1>
           <p className="mx-auto mt-5 max-w-prose leading-relaxed text-espresso/75">

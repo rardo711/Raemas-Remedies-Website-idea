@@ -1,10 +1,9 @@
 /* Self-hosted so the site makes no third-party requests at runtime. */
-@import '@fontsource/cormorant-garamond/400.css';
-@import '@fontsource/cormorant-garamond/500.css';
-@import '@fontsource/cormorant-garamond/600.css';
-@import '@fontsource/cormorant-garamond/400-italic.css';
-@import '@fontsource/cormorant-garamond/500-italic.css';
-@import '@fontsource/jost/300.css';
+@import '@fontsource/lora/400.css';
+@import '@fontsource/lora/500.css';
+@import '@fontsource/lora/600.css';
+@import '@fontsource/lora/400-italic.css';
+@import '@fontsource/lora/500-italic.css';
 @import '@fontsource/jost/400.css';
 @import '@fontsource/jost/500.css';
 
@@ -20,7 +19,7 @@
 
   body {
     @apply bg-cream text-espresso font-sans antialiased;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.005em;
   }
 
@@ -31,8 +30,6 @@
     @apply font-serif;
     font-weight: 500;
     text-wrap: balance;
-    /* Cormorant's default spacing opens up badly at display sizes. */
-    letter-spacing: -0.005em;
   }
 
   p {
@@ -191,6 +188,13 @@
 
   .btn-primary {
     @apply btn bg-espresso text-cream hover:bg-espresso/85;
+  }
+
+  /* The add-to-cart green, reserved for the buy action so it stays legible
+     as "this is the one that gets you the jar". Moss rather than sage: sage
+     can't carry cream text at this size, moss can. */
+  .btn-buy {
+    @apply btn bg-moss text-cream hover:bg-moss/90;
   }
 
   .btn-secondary {

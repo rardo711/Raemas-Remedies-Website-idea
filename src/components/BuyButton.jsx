@@ -11,7 +11,9 @@ import { Link } from 'react-router-dom'
  */
 export function BuyButton({ product, variant = 'primary', className = '' }) {
   const classes = {
-    primary: 'btn-primary',
+    // The buy action wears the green; everything else on the page keeps to
+    // espresso, so the one button that matters is the one in colour.
+    primary: 'btn-buy',
     secondary: 'btn-secondary',
     dark: 'btn-on-dark',
   }[variant]

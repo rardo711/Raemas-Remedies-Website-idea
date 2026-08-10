@@ -9,7 +9,7 @@ export function Accordion({ title, children, defaultOpen = false }) {
       open={defaultOpen}
     >
       <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 transition-colors hover:text-espresso/70">
-        <span className="font-serif text-xl">{title}</span>
+        <span className="font-serif text-lg sm:text-xl">{title}</span>
         <span
           className="relative h-3 w-3 shrink-0 text-espresso/60"
           aria-hidden="true"

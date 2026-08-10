@@ -46,7 +46,7 @@ export function Home() {
 
           {/* "old way" carries the line, so it's the part set in italic —
               the stress a person puts there reading it out loud. */}
-          <h1 className="mt-5 font-serif text-[3.25rem] leading-[1.02] sm:text-[4.75rem]">
+          <h1 className="mt-5 font-serif text-4xl leading-[1.08] sm:text-6xl">
             Made by hand,
             <br />
             the <em>old way</em>.
@@ -105,7 +105,7 @@ export function Home() {
             <p className="eyebrow">Small batch, made to order</p>
             <h2
               id="remedies-heading"
-              className="mt-3 font-serif text-4xl sm:text-5xl"
+              className="mt-3 font-serif text-3xl sm:text-4xl"
             >
               The Remedies
             </h2>
@@ -142,7 +142,7 @@ export function Home() {
           <p className="eyebrow">The hands behind the jar</p>
           <h2
             id="meet-teaser-heading"
-            className="mt-3 font-serif text-4xl sm:text-5xl"
+            className="mt-3 font-serif text-3xl sm:text-4xl"
           >
             Meet RaeMa
           </h2>
@@ -168,7 +168,7 @@ export function Home() {
             <p className="eyebrow">Also available in person</p>
             <h2
               id="stockist-heading"
-              className="mt-3 font-serif text-3xl sm:text-4xl"
+              className="mt-3 font-serif text-2xl sm:text-3xl"
             >
               Find us at {stockist.name}
             </h2>

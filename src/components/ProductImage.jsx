@@ -43,7 +43,7 @@ function TypographicPlate({ name, size }) {
         {/* An ornament rather than the motto: at card width the full motto
             wraps, and a truncated one reads as a mistake. */}
         <LeafBullet className="text-sage" />
-        <span className="mt-3 block font-serif text-xl leading-snug text-espresso/80 sm:text-2xl">
+        <span className="mt-3 block font-serif text-lg leading-snug text-espresso/80 sm:text-xl">
           {name}
         </span>
         <span
@@ -80,13 +80,15 @@ export function ProductImage({ product, className = '', priority = false }) {
       <div
         className={`flex items-center justify-center overflow-hidden p-6 ${SAND} ${className}`}
       >
+        {/* Multiplied into the sand so the scan reads as printed on it
+            rather than pasted over it — see the note in BrandMark. */}
         <img
           src={brandAsset.label(product.labelArt.cream)}
           onError={() => setLabelFailed(true)}
           alt={`The printed label for ${product.name}`}
           loading={priority ? 'eager' : 'lazy'}
           decoding="async"
-          className="max-h-full w-auto max-w-full object-contain"
+          className="max-h-full w-auto max-w-full object-contain mix-blend-multiply"
         />
       </div>
     )

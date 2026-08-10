@@ -50,7 +50,7 @@ export function Header() {
           {/* A hair off true, like a stamp pressed by hand. */}
           <BrandMark size={48} className="set-b" />
           <span className="leading-none">
-            <span className="block font-serif text-xl sm:text-2xl">
+            <span className="block font-serif text-lg sm:text-xl">
               RaeMa&rsquo;s Remedies
             </span>
             <span className="motto mt-1 hidden sm:block">{site.motto}</span>

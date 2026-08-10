@@ -7,7 +7,7 @@ import { Accordion } from '../components/Accordion'
 import { BuyButton } from '../components/BuyButton'
 import { DarkLabelArt, ProductGallery } from '../components/ProductImage'
 import { ProductCard } from '../components/ProductCard'
-import { BotanicalDivider, InkRule, LeafBullet } from '../components/Ornaments'
+import { BotanicalDivider, LeafBullet } from '../components/Ornaments'
 import { NotFound } from './NotFound'
 
 export function ProductDetail() {
@@ -54,40 +54,54 @@ export function ProductDetail() {
           <div className="lg:sticky lg:top-24 lg:self-start">
             <p className="motto">{site.motto}</p>
 
-            <h1 className="mt-4 font-serif text-[2.6rem] leading-[1.05] sm:text-5xl">
+            <h1 className="mt-3 font-serif text-4xl leading-[1.12] sm:text-[2.75rem]">
               {product.name}
             </h1>
 
-            {/* The rule under the name is drawn, not ruled. It sits a little
-                short of the column on purpose. */}
-            <InkRule className="mt-5 max-w-[13rem] text-espresso/35" />
-
-            <p className="mt-5 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-              <span className="font-serif text-3xl">
-                {formatPrice(product.price)}
-              </span>
-              {product.size ? (
-                <span className="eyebrow">{product.size}</span>
-              ) : null}
-            </p>
-
-            {/* The one line that has to land. Set in the serif, a size up
-                from the body, the way the opening line of a letter is. */}
-            <p className="mt-6 max-w-prose font-serif text-xl leading-relaxed text-espresso/85 sm:text-[1.4rem]">
-              {product.summary}
-            </p>
+            {/* Reference order from here down: the description sits open
+                directly under the name — ingredients folded into it as one
+                plain line — and only then price, size, and the buy button,
+                with "How to Use" tucked below the lot. */}
+            <div className="mt-4 border-t border-espresso/15">
+              <Accordion title="Description" defaultOpen>
+                <p className="max-w-prose leading-relaxed">
+                  {product.description}
+                </p>
+                {/* Her plain list, exactly as written, joined with commas.
+                    No per-ingredient benefit breakdowns. */}
+                <p className="mt-4 max-w-prose leading-relaxed">
+                  <strong className="font-sans font-medium">
+                    Ingredients:
+                  </strong>{' '}
+                  {product.ingredients.join(', ')}.
+                </p>
+              </Accordion>
+            </div>
 
             {/* Required notices, given the prominence they're due. */}
             {product.notice ? (
               <p
                 role="note"
-                className="double-rule-sage mt-7 bg-sage/10 px-5 py-4 text-sm leading-relaxed text-espresso/85"
+                className="double-rule-sage mt-6 bg-sage/10 px-5 py-4 text-sm leading-relaxed text-espresso/85"
               >
                 {product.notice}
               </p>
             ) : null}
 
-            <div className="mt-8">
+            <p className="mt-7 font-sans text-3xl">
+              {formatPrice(product.price)}
+            </p>
+
+            {product.size ? (
+              <p className="mt-4 flex items-center gap-3 text-sm">
+                <span className="text-espresso/70">Size:</span>
+                <span className="border border-espresso/40 px-3.5 py-1.5">
+                  {product.size}
+                </span>
+              </p>
+            ) : null}
+
+            <div className="mt-6">
               <BuyButton product={product} className="w-full sm:w-auto" />
               {!product.checkoutUrl && (
                 <p className="handnote mt-4 max-w-sm origin-left">
@@ -97,34 +111,15 @@ export function ProductDetail() {
               )}
             </div>
 
-            <div className="mt-10">
-              <Accordion title="Description" defaultOpen>
-                <p className="max-w-prose leading-relaxed">
-                  {product.description}
-                </p>
-              </Accordion>
-
-              {product.howToUse ? (
+            {product.howToUse ? (
+              <div className="mt-9 border-t border-espresso/15">
                 <Accordion title="How to Use">
                   <p className="max-w-prose leading-relaxed">
                     {product.howToUse}
                   </p>
                 </Accordion>
-              ) : null}
-
-              <Accordion title="What’s in it">
-                {/* Her plain list, exactly as written. No per-ingredient
-                    benefit breakdowns. */}
-                <ul className="space-y-2.5">
-                  {product.ingredients.map((ingredient) => (
-                    <li key={ingredient} className="flex items-start gap-3">
-                      <LeafBullet className="mt-[0.4rem] text-sage" />
-                      <span>{ingredient}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Accordion>
-            </div>
+              </div>
+            ) : null}
           </div>
         </div>
       </article>
@@ -165,7 +160,7 @@ export function ProductDetail() {
 
           <div className={hasDarkLabel ? 'md:flex-1' : 'mx-auto max-w-2xl'}>
             <p className="motto">{site.motto}</p>
-            <h2 className="mt-4 font-serif text-3xl sm:text-4xl">
+            <h2 className="mt-4 font-serif text-2xl sm:text-3xl">
               Made in small batches, by hand
             </h2>
             <p
@@ -188,7 +183,7 @@ export function ProductDetail() {
       <section aria-labelledby="more-heading">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-[5.5rem]">
           <div className="text-center">
-            <h2 id="more-heading" className="font-serif text-3xl sm:text-4xl">
+            <h2 id="more-heading" className="font-serif text-2xl sm:text-3xl">
               More remedies
             </h2>
             <BotanicalDivider className="mt-5 text-espresso/45" />

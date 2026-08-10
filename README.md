@@ -188,7 +188,9 @@ change anything.
 Cider label is actually printed on, not a paper-white approximation of it. Card
 faces lift half a step to `#F6F0E4` (`parchment`), bands that need to recede
 drop to `#E5DAC6` (`oat`), and the ink stays `#211C16` (`espresso`) with
-`#8A9B7C` (`sage`) and `#D9C7A9` (`tan`) as the only accents. All six live in
+`#8A9B7C` (`sage`) and `#D9C7A9` (`tan`) as the only accents — plus
+`#5C694D` (`moss`), sage taken down to where cream text passes contrast,
+worn only by the buy button. All six live in
 `theme.extend.colors` in `tailwind.config.js`; nothing hard-codes a hex except
 the three hero gradients, which are noted where they sit.
 
@@ -222,7 +224,7 @@ reading as an effect.
 
 ## Notes on the build
 
-- **Fonts are self-hosted** (Cormorant Garamond and Jost, via `@fontsource`),
+- **Fonts are self-hosted** (Lora and Jost, via `@fontsource`),
   so the site makes no third-party requests at runtime. Both are declared in
   one place — `fontFamily` in `tailwind.config.js` — with the matching
   `@import` lines at the top of `src/index.css`. Swapping either one is those
