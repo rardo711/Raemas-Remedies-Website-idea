@@ -47,7 +47,8 @@ export function ProductCard({ product, priority = false, index = null }) {
           {product.summary}
         </p>
 
-        <p className="mt-4 flex items-baseline gap-2.5 font-sans text-lg">
+        {/* Prices print in green on her flyer, so they do here too. */}
+        <p className="mt-4 flex items-baseline gap-2.5 font-sans text-lg text-moss">
           {formatPrice(product.price)}
           {product.size ? <span className="motto">{product.size}</span> : null}
         </p>

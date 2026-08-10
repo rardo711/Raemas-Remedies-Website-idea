@@ -31,6 +31,9 @@ export default {
         // serif on the reference storefront. Jost for everything else.
         serif: ['Lora', 'Georgia', 'serif'],
         sans: ['Jost', 'system-ui', 'sans-serif'],
+        // The handwriting from her flyer ("Handcrafted with nature…").
+        // Reserved for her transcribed script lines — never for UI text.
+        script: ['"Dancing Script"', 'cursive'],
       },
       letterSpacing: {
         motto: '0.3em',

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { BrandMark } from './BrandMark'
-import { HeartAndArrow } from './Ornaments'
+import { HeartAndArrow, LeafBullet } from './Ornaments'
 import { disclaimer, site, stockist } from '../data/site'
 
 export function Footer() {
@@ -78,6 +78,14 @@ export function Footer() {
         <p className="mt-6 text-center text-xs text-cream/60">
           &copy; {new Date().getFullYear()} {site.name}
         </p>
+      </div>
+
+      {/* The flyer's closing band, sprigs and all — a deeper strip along
+          the very bottom, the way hers runs along the foot of the page. */}
+      <div className="flex items-center justify-center gap-4 bg-black/25 px-4 py-3">
+        <LeafBullet className="rotate-90 text-cream/40" />
+        <p className="eyebrow !text-cream/65">{site.flyer.footerLine}</p>
+        <LeafBullet className="-rotate-90 -scale-x-100 text-cream/40" />
       </div>
     </footer>
   )

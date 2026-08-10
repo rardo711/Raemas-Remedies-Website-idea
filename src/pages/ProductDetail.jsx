@@ -7,7 +7,7 @@ import { Accordion } from '../components/Accordion'
 import { BuyButton } from '../components/BuyButton'
 import { DarkLabelArt, ProductGallery } from '../components/ProductImage'
 import { ProductCard } from '../components/ProductCard'
-import { LeafBullet, SeedDivider } from '../components/Ornaments'
+import { HeartRule, LeafBullet, SeedDivider } from '../components/Ornaments'
 import { NotFound } from './NotFound'
 
 export function ProductDetail() {
@@ -67,11 +67,12 @@ export function ProductDetail() {
                 <p className="max-w-prose leading-relaxed">
                   {product.description}
                 </p>
-                {/* Her plain list, exactly as written, joined with commas.
-                    No per-ingredient benefit breakdowns. */}
+                {/* Her plain list, exactly as written, joined with commas,
+                    under the heading her flyer gives it — "Made with" on
+                    the tallow products, "Ingredients" on the rest. */}
                 <p className="mt-4 max-w-prose leading-relaxed">
                   <strong className="font-sans font-medium">
-                    Ingredients:
+                    {product.ingredientsLabel || 'Ingredients'}:
                   </strong>{' '}
                   {product.ingredients.join(', ')}.
                 </p>
@@ -88,9 +89,13 @@ export function ProductDetail() {
               </p>
             ) : null}
 
-            <p className="mt-7 font-sans text-3xl">
+            {/* Green price over a heart-broken rule — both straight off her
+                flyer, which prices everything in green and rests a small
+                heart beneath. */}
+            <p className="mt-7 font-sans text-3xl text-moss">
               {formatPrice(product.price)}
             </p>
+            <HeartRule className="mt-2 text-espresso/45" />
 
             {product.size ? (
               <p className="mt-4 flex items-center gap-3 text-sm">

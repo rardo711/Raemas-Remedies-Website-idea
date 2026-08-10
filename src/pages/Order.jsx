@@ -234,7 +234,12 @@ export function Order() {
               </li>
             </ul>
 
-            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+            {/* Her flyer's sign-off, in her hand. */}
+            <p className="script-line mt-8 text-xl sm:text-2xl">
+              {site.flyer.thanks}
+            </p>
+
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <button
                 type="button"
                 onClick={startOver}

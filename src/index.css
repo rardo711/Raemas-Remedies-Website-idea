@@ -6,6 +6,7 @@
 @import '@fontsource/lora/500-italic.css';
 @import '@fontsource/jost/400.css';
 @import '@fontsource/jost/500.css';
+@import '@fontsource/dancing-script/600.css';
 
 @tailwind base;
 @tailwind components;
@@ -166,6 +167,40 @@
   .on-dark .eyebrow,
   .on-dark .motto {
     @apply text-cream/60;
+  }
+
+  /*
+   * Her handwriting, for the flyer lines transcribed into src/data/site.js.
+   * Distinct from .handnote (our margin-note voice, serif italic): script
+   * is her signature phrases only, so it stays scarce enough to feel signed.
+   */
+  .script-line {
+    @apply font-script text-espresso/85;
+    letter-spacing: 0.01em;
+  }
+
+  /*
+   * The sage brush stroke from the flyer, laid behind a script line. An
+   * irregular swept band, not a rounded rectangle — the ends taper and the
+   * edges wander. One per page at most.
+   */
+  .brush-stroke {
+    position: relative;
+    display: inline-block;
+    padding: 0.35em 1.1em 0.4em;
+    /* Without its own stacking context the z-index:-1 stroke would fall
+       behind the section's background and vanish. */
+    isolation: isolate;
+  }
+
+  .brush-stroke::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: rotate(-0.6deg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 44' preserveAspectRatio='none'%3E%3Cpath d='M6 24C3 15 12 7 30 6C90 2 210 3 276 8C290 9 298 15 296 24C294 33 286 38 268 39C200 44 88 43 28 39C13 38 8 32 6 24Z' fill='%238A9B7C' fill-opacity='0.4'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
   }
 
   /*

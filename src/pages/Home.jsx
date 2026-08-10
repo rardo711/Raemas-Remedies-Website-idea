@@ -8,10 +8,10 @@ import {
   BotanicalDivider,
   CornerTick,
   HeartAndArrow,
-  InkRule,
   LeafBullet,
   ScrollCue,
   Sprig,
+  TinyHeart,
 } from '../components/Ornaments'
 
 export function Home() {
@@ -54,7 +54,14 @@ export function Home() {
             the <em>old way</em>.
           </h1>
 
-          <InkRule className="mx-auto mt-7 max-w-[9rem] text-espresso/30" />
+          {/* Her flyer's signature line, in her script, on her sage brush
+              stroke — transcribed, heart included. */}
+          <p className="mt-7">
+            <span className="brush-stroke script-line text-2xl sm:text-3xl">
+              {site.flyer.script}{' '}
+              <TinyHeart className="text-espresso/70" />
+            </span>
+          </p>
 
           <p className="mx-auto mt-6 max-w-prose text-base leading-relaxed text-espresso/75 sm:text-lg">
             {site.tagline}, rendered and infused in small batches in{' '}
@@ -89,10 +96,17 @@ export function Home() {
 
       {/* ── Why choose (from her flyer) ──────────────────────────────── */}
       <section
-        aria-label="Why choose RaeMa's Remedies"
+        aria-labelledby="why-choose-heading"
         className="grain border-y border-espresso/10 bg-sage/10"
       >
-        <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-y-6 px-4 py-9 sm:px-6 lg:grid-cols-4">
+        {/* Her flyer's own heading for this block, in her hand. */}
+        <h2
+          id="why-choose-heading"
+          className="script-line pt-9 text-center text-2xl sm:text-3xl"
+        >
+          {site.flyer.whyChoose}
+        </h2>
+        <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-y-6 px-4 pb-9 pt-6 sm:px-6 lg:grid-cols-4">
           {whyChoose.map((item, index) => (
             <li
               key={item}
@@ -115,7 +129,8 @@ export function Home() {
       >
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-[5.5rem]">
           <div className="text-center">
-            <p className="eyebrow">Small batch, made to order</p>
+            {/* The flyer's masthead line, doing eyebrow duty. */}
+            <p className="eyebrow">{site.flyer.motto}</p>
             <h2
               id="remedies-heading"
               className="mt-3 font-serif text-3xl sm:text-4xl"
