@@ -20,11 +20,14 @@ export default {
         espresso: '#211C16',
         tan: '#D9C7A9',
         sage: '#8A9B7C',
+        // Sage taken down to where cream text passes contrast on it — the
+        // add-to-cart green. Sage itself stays a tint-and-border colour.
+        moss: '#5C694D',
       },
       fontFamily: {
-        // Cormorant Garamond sets a lot lighter than it measures, so display
-        // sizes below use weight 500–600 rather than 400.
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        // Lora for headings — sturdy and bookish, the same register as the
+        // serif on the reference storefront. Jost for everything else.
+        serif: ['Lora', 'Georgia', 'serif'],
         sans: ['Jost', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {

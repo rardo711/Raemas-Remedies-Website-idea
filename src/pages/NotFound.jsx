@@ -8,7 +8,7 @@ export function NotFound() {
   return (
     <section className="mx-auto max-w-2xl px-4 py-24 text-center sm:px-6">
       <p className="eyebrow">Nothing on this shelf</p>
-      <h1 className="mt-3 font-serif text-5xl sm:text-6xl">
+      <h1 className="mt-3 font-serif text-4xl sm:text-5xl">
         We couldn&rsquo;t find that
       </h1>
       <BotanicalDivider className="mt-7 text-espresso/45" />

@@ -5,8 +5,9 @@
  *
  *  1. Always write "local pasture-raised tallow". Never "grass-fed".
  *  2. Never invent ingredients, benefits, reviews, ratings, or claims.
- *     Ingredient lists render exactly as written here, as plain lists —
- *     no per-ingredient benefit breakdowns.
+ *     Ingredient lists render exactly as written here, as one plain
+ *     comma-separated line inside the description — no per-ingredient
+ *     benefit breakdowns.
  *  3. If you don't know a value, leave it as an empty string. The UI is
  *     built to hide empty fields. Do not guess.
  *
@@ -18,7 +19,8 @@
  *  summary     one line, used on cards and in the detail-page intro.
  *  description longer paragraph for the Description accordion.
  *  howToUse    Description accordion's sibling. See the TODO below.
- *  ingredients plain array of strings, rendered as a plain list.
+ *  ingredients plain array of strings, rendered comma-separated in the
+ *              Description section.
  *  notice      shown prominently on the detail page in a ruled callout.
  *  checkoutUrl EMPTY until a Stripe Payment Link exists. When you paste a
  *              link in, that product's button flips from

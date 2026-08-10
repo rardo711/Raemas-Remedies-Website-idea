@@ -34,7 +34,7 @@ export function ProductCard({ product, priority = false, index = null }) {
       </Link>
 
       <div className="flex flex-1 flex-col p-5 pt-4">
-        <h3 className="font-serif text-2xl leading-snug">
+        <h3 className="font-serif text-xl leading-snug">
           <Link
             to={`/product/${product.id}`}
             className="transition-colors hover:text-espresso/65"
@@ -47,7 +47,7 @@ export function ProductCard({ product, priority = false, index = null }) {
           {product.summary}
         </p>
 
-        <p className="mt-4 flex items-baseline gap-2.5 font-serif text-xl">
+        <p className="mt-4 flex items-baseline gap-2.5 font-sans text-lg">
           {formatPrice(product.price)}
           {product.size ? <span className="motto">{product.size}</span> : null}
         </p>

@@ -49,7 +49,14 @@ export function BrandMark({ size = 96, className = '', tone = 'light' }) {
       onError={() => setFailed(true)}
       width={size}
       height={size}
-      className={`shrink-0 object-contain ${className}`}
+      /* The scans were keyed from solid grounds and a whisper of that ground
+         survives as a faint plate around the art. Blending the image into
+         the page removes it: multiply can only darken, so near-paper haze
+         disappears and the ink prints straight onto the grain; screen is
+         the same trick inverted for the cream-ink cut on espresso. */
+      className={`shrink-0 object-contain ${
+        onDark ? 'mix-blend-screen' : 'mix-blend-multiply'
+      } ${className}`}
       style={{ width: size, height: size }}
       alt={`${site.name} emblem: a grazing cow, mason jar, and mortar and pestle framed by botanical laurels, with the motto ${site.motto}`}
     />

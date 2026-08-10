@@ -9,7 +9,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
         <div className="flex flex-col items-center text-center">
           <BrandMark size={80} tone="dark" className="set-a" />
-          <p className="mt-4 font-serif text-2xl">{site.name}</p>
+          <p className="mt-4 font-serif text-xl">{site.name}</p>
           <p className="motto mt-2">{site.motto}</p>
           <HeartAndArrow className="mt-5 text-cream/40" />
         </div>
