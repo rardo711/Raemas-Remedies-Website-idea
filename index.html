@@ -20,7 +20,28 @@
     <title>RaeMa's Remedies | Tallow · Herbs · Home · Health</title>
   </head>
   <body>
-    <div id="root"></div>
+    <!--
+      React replaces everything inside #root as soon as it mounts, so what sits
+      here is only ever seen when the script below never ran — which on GitHub
+      Pages almost always means the site is being served straight from the
+      repository instead of from the built output. The styles are inline on
+      purpose: in that situation the CSS bundle has not loaded either. See the
+      Troubleshooting section of README.md.
+    -->
+    <div id="root">
+      <div style="font-family: Georgia, serif; color: #2B2118; background: #F5F0E6; padding: 3rem 1.5rem; text-align: center">
+        <p style="font-size: 1.5rem; margin: 0 0 0.75rem">RaeMa&rsquo;s Remedies</p>
+        <p style="margin: 0 0 0.75rem">Loading&hellip;</p>
+        <p style="font-size: 0.875rem; opacity: 0.7; margin: 0">
+          If this message stays put, the page&rsquo;s JavaScript did not load.
+        </p>
+      </div>
+    </div>
+    <noscript>
+      <div style="font-family: Georgia, serif; color: #2B2118; background: #F5F0E6; padding: 1.5rem; text-align: center">
+        This site needs JavaScript switched on to show the remedies.
+      </div>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
