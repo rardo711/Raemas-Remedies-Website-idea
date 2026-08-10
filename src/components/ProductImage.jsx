@@ -12,7 +12,14 @@ import { LeafBullet } from './Ornaments'
  * No stock photography and no external image URLs, ever.
  */
 
-const SAND = 'bg-[linear-gradient(160deg,#FBF8F1_0%,#F1E9DA_55%,#E8DDC8_100%)]'
+/*
+ * The ground every product image sits on. It runs from the light corner of
+ * the palette to the oat end of it, on the same diagonal every time, so a
+ * grid of four cards reads as one set of plates rather than four boxes.
+ * `grain` goes on top of the gradient, not instead of it.
+ */
+const SAND =
+  'grain bg-[linear-gradient(160deg,#F7F1E6_0%,#EDE3D1_55%,#E2D5BC_100%)]'
 
 /**
  * One frame shape for every product image, so cards stay on a tidy grid
@@ -36,10 +43,13 @@ function TypographicPlate({ name, size }) {
         {/* An ornament rather than the motto: at card width the full motto
             wraps, and a truncated one reads as a mistake. */}
         <LeafBullet className="text-sage" />
-        <span className="mt-3 block font-serif text-lg leading-snug text-espresso/80 sm:text-xl">
+        <span className="mt-3 block font-serif text-xl leading-snug text-espresso/80 sm:text-2xl">
           {name}
         </span>
-        <span className="mt-3 block h-px w-10 bg-espresso/25" aria-hidden="true" />
+        <span
+          className="mt-3 block h-px w-10 origin-center rotate-0.5 bg-espresso/25"
+          aria-hidden="true"
+        />
         {size ? <span className="motto mt-3">{size}</span> : null}
       </span>
     </div>
@@ -148,7 +158,10 @@ export function ProductGallery({ product }) {
       </div>
 
       {photos.length > 1 && (
-        <ul className="mt-3 flex flex-wrap gap-3">
+        /* Laid out like contact prints set down on a table: each one sits at
+           its own slight angle, cycling through four fixed values so the row
+           never repeats the same tilt twice running. */
+        <ul className="mt-4 flex flex-wrap gap-3 px-1">
           {photos.map((photo, index) => (
             <li key={photo}>
               <button
@@ -156,6 +169,8 @@ export function ProductGallery({ product }) {
                 onClick={() => setActive(index)}
                 aria-pressed={index === active}
                 className={`block h-16 w-16 overflow-hidden border transition-colors ${
+                  ['set-a', 'set-b', 'set-c', 'set-d'][index % 4]
+                } ${
                   index === active
                     ? 'border-espresso'
                     : 'border-espresso/20 hover:border-espresso/60'

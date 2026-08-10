@@ -177,10 +177,10 @@ export function Order() {
 
   return (
     <>
-      <section className="bg-[radial-gradient(ellipse_at_50%_0%,#FBF8F1_0%,#F5F0E6_70%)]">
+      <section className="grain bg-[radial-gradient(ellipse_at_50%_-10%,#F7F1E6_0%,#EFE7D8_70%)]">
         <div className="mx-auto max-w-3xl px-4 py-14 text-center sm:px-6 sm:py-16">
           <p className="eyebrow">Local pickup or shipping</p>
-          <h1 className="mt-3 font-serif text-4xl sm:text-5xl">
+          <h1 className="mt-3 font-serif text-5xl sm:text-6xl">
             Place an Order
           </h1>
           <p className="mx-auto mt-5 max-w-prose leading-relaxed text-espresso/75">
@@ -196,7 +196,7 @@ export function Order() {
           <div
             ref={successRef}
             tabIndex={-1}
-            className="double-rule bg-parchment px-6 py-12 text-center sm:px-10"
+            className="double-rule grain bg-parchment px-6 py-12 text-center sm:px-10"
           >
             <HeartAndArrow className="mx-auto text-sage" />
             <h2 className="mt-5 font-serif text-3xl">Thank you kindly</h2>
@@ -243,7 +243,7 @@ export function Order() {
         ) : (
           <form onSubmit={handleSubmit}>
             {/* ── Remedies ─────────────────────────────────────────── */}
-            <fieldset className="double-rule bg-parchment px-5 py-6 sm:px-7">
+            <fieldset className="double-rule grain bg-parchment px-5 py-6 sm:px-7">
               <legend className="eyebrow px-2">Choose your remedies</legend>
 
               <ul className="mt-2 divide-y divide-espresso/10">
