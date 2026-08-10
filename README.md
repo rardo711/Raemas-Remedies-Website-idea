@@ -35,7 +35,10 @@ file and the cards, detail pages, and order form all follow.
 
 Three rules are worth keeping:
 
-1. **Always write "local pasture-raised tallow".** Never "grass-fed".
+1. **Product copy is her flyer, word for word** — descriptions, ingredient
+   lists in her order, and whether a product says "Made with" or
+   "Ingredients". That includes "Grass-fed tallow", which is how she prints
+   it. Don't paraphrase; if the flyer changes, retranscribe.
 2. **Never invent anything** — no ingredients, no benefits, no reviews, no
    ratings, no claims.
 3. **Leave unknown fields empty** rather than guessing. The site hides empty

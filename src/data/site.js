@@ -11,6 +11,16 @@ export const site = {
   location: 'Tattnall County, Georgia',
   maker: 'Rachael Harrelson',
 
+  // Her printed flyer's own lines, transcribed word for word. The script
+  // ones render in the handwriting face — they're her voice, not ours.
+  flyer: {
+    script: 'Handcrafted with nature. Made with love.',
+    motto: 'Local Grown · Handcrafted · Small Batch Wellness',
+    whyChoose: "Why Choose RaeMa's Remedies?",
+    footerLine: 'Local Grown · Handcrafted · Made with Love',
+    thanks: 'Thank you for supporting small, local & handmade!',
+  },
+
   // TODO: replace with the real Facebook page URL. Anything falsy hides the
   // link everywhere it appears, so the site never ships a dead link.
   facebookUrl: '',

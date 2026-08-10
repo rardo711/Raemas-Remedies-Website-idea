@@ -107,6 +107,48 @@ export function SeedDivider({ className = '' }) {
 }
 
 /**
+ * The flyer's under-price divider: a short rule broken by a small heart.
+ * Her flyer sets one beneath every price, so the product page does too.
+ */
+export function HeartRule({ className = '' }) {
+  return (
+    <svg
+      viewBox="0 0 64 14"
+      className={`h-3.5 w-16 ${className}`}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      <path d="M2 7.2C10 6.8 18 7.1 24 6.9" opacity="0.6" />
+      <path d="M40 7.1C48 6.7 56 7.2 62 6.8" opacity="0.6" />
+      <path d="M32 11.4C28.4 8.2 26 6.6 26 4.9C26 3.6 27.1 2.5 28.4 2.5C29.5 2.5 30.3 3.2 32 5C33.8 3.2 34.6 2.6 35.7 2.6C37 2.6 38 3.7 38 5C38 6.7 35.5 8.3 32 11.4Z" />
+    </svg>
+  )
+}
+
+/**
+ * A small open heart on its own — the ♡ her flyer scatters at the end of
+ * script lines. Inline, sized to the surrounding text.
+ */
+export function TinyHeart({ className = '' }) {
+  return (
+    <svg
+      viewBox="0 0 16 14"
+      className={`inline-block h-[0.6em] w-[0.7em] ${className}`}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.2"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      <path d="M8 12.4C3.6 8.6 1.2 6.6 1.2 4.4C1.2 2.7 2.6 1.4 4.2 1.4C5.5 1.4 6.4 2.1 8 3.9C9.7 2.1 10.6 1.5 11.9 1.5C13.5 1.5 14.8 2.8 14.8 4.5C14.8 6.7 12.2 8.7 8 12.4Z" />
+    </svg>
+  )
+}
+
+/**
  * A pen squaring off a corner: two short strokes that meet and slightly
  * overshoot, the way a drawn frame's corners overshoot. Position it
  * absolutely inside a `relative` plate; flip with rotate utilities for the
