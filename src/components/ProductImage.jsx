@@ -19,7 +19,7 @@ import { LeafBullet } from './Ornaments'
  * `grain` goes on top of the gradient, not instead of it.
  */
 const SAND =
-  'grain bg-[linear-gradient(160deg,#F7F1E6_0%,#EDE3D1_55%,#E2D5BC_100%)]'
+  'grain bg-[linear-gradient(160deg,#F6F4E9_0%,#EAE7D4_55%,#DBD8C1_100%)]'
 
 /**
  * One frame shape for every product image, so cards stay on a tidy grid

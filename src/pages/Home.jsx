@@ -6,9 +6,11 @@ import { BrandMark } from '../components/BrandMark'
 import { ProductCard } from '../components/ProductCard'
 import {
   BotanicalDivider,
+  CornerTick,
   HeartAndArrow,
   InkRule,
   LeafBullet,
+  ScrollCue,
   Sprig,
 } from '../components/Ornaments'
 
@@ -22,7 +24,7 @@ export function Home() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <section className="grain relative overflow-hidden bg-[radial-gradient(ellipse_at_50%_-10%,#F7F1E6_0%,#EFE7D8_52%,#E5DAC6_100%)]">
+      <section className="grain relative overflow-hidden bg-[radial-gradient(ellipse_at_50%_-10%,#F6F4E9_0%,#EDEBDC_52%,#E0DEC8_100%)]">
         {/* Laurel sprigs from the emblem, stood up either side of the
             headline. They're bounded to their own column rather than to the
             viewport, so on a wide monitor they stay beside the words instead
@@ -71,6 +73,17 @@ export function Home() {
               Meet RaeMa
             </Link>
           </div>
+
+          {/* An inked arrow rather than an animated chevron — the "there's
+              more below" cue, in the same nib as everything else. */}
+          <button
+            type="button"
+            onClick={scrollToRemedies}
+            aria-label="Scroll to the remedies"
+            className="mx-auto mt-10 block text-espresso/40 transition-colors hover:text-espresso/75"
+          >
+            <ScrollCue className="set-b" />
+          </button>
         </div>
       </section>
 
@@ -164,7 +177,10 @@ export function Home() {
       {/* ── Stockist ─────────────────────────────────────────────────── */}
       <section aria-labelledby="stockist-heading">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-[5.5rem]">
-          <div className="double-rule grain set-c mx-auto max-w-2xl bg-parchment px-6 py-11 text-center sm:px-10">
+          <div className="double-rule grain set-c relative mx-auto max-w-2xl bg-parchment px-6 py-11 text-center sm:px-10">
+            {/* The pen squaring off two opposite corners of the frame. */}
+            <CornerTick className="absolute left-2 top-2 text-espresso/30" />
+            <CornerTick className="absolute bottom-2 right-2 rotate-180 text-espresso/30" />
             <p className="eyebrow">Also available in person</p>
             <h2
               id="stockist-heading"

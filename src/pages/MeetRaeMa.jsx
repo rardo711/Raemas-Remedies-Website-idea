@@ -3,7 +3,7 @@ import { site } from '../data/site'
 import { getFamilyPhoto } from '../lib/assets'
 import { usePageTitle } from '../components/Layout'
 import { BrandMark } from '../components/BrandMark'
-import { BotanicalDivider, HeartAndArrow } from '../components/Ornaments'
+import { BotanicalDivider, HeartAndArrow, Sprig } from '../components/Ornaments'
 
 export function MeetRaeMa() {
   usePageTitle('Meet RaeMa')
@@ -14,7 +14,17 @@ export function MeetRaeMa() {
 
   return (
     <>
-      <section className="grain bg-[radial-gradient(ellipse_at_50%_-10%,#F7F1E6_0%,#EFE7D8_70%)]">
+      <section className="grain relative overflow-hidden bg-[radial-gradient(ellipse_at_50%_-10%,#F6F4E9_0%,#EDEBDC_70%)]">
+        {/* The same laurel margins as the home hero — right one lower, one
+            mirrored, gone below lg where there's no margin for them. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-16 mx-auto hidden max-w-4xl px-6 lg:block"
+        >
+          <Sprig className="absolute left-6 h-36 w-14 text-espresso/[0.16]" />
+          <Sprig className="absolute right-6 top-8 h-36 w-14 -scale-x-100 text-espresso/[0.13]" />
+        </div>
+
         <div className="mx-auto max-w-3xl px-4 py-14 text-center sm:px-6 sm:py-20">
           <BrandMark size={104} className="set-a mx-auto" />
           <p className="eyebrow mt-6">Tattnall County, Georgia</p>

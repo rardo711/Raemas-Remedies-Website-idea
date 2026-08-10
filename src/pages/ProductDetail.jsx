@@ -7,7 +7,7 @@ import { Accordion } from '../components/Accordion'
 import { BuyButton } from '../components/BuyButton'
 import { DarkLabelArt, ProductGallery } from '../components/ProductImage'
 import { ProductCard } from '../components/ProductCard'
-import { BotanicalDivider, LeafBullet } from '../components/Ornaments'
+import { LeafBullet, SeedDivider } from '../components/Ornaments'
 import { NotFound } from './NotFound'
 
 export function ProductDetail() {
@@ -186,7 +186,7 @@ export function ProductDetail() {
             <h2 id="more-heading" className="font-serif text-2xl sm:text-3xl">
               More remedies
             </h2>
-            <BotanicalDivider className="mt-5 text-espresso/45" />
+            <SeedDivider className="mt-5 text-sage" />
           </div>
 
           <ul className="mt-10 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">

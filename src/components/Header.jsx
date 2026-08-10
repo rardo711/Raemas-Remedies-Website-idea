@@ -1,6 +1,7 @@
 import { useEffect, useId, useState } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { BrandMark } from './BrandMark'
+import { LeafBullet } from './Ornaments'
 import { site } from '../data/site'
 
 const navLinks = [
@@ -34,9 +35,11 @@ export function Header() {
     }
   }
 
+  // The page you're on keeps a penned underline (see .nav-here) — a shape,
+  // not just a colour shift, so orientation survives any kind of vision.
   const linkClass = ({ isActive }) =>
     `eyebrow py-2 transition-colors hover:text-espresso ${
-      isActive ? 'text-espresso' : ''
+      isActive ? 'nav-here text-espresso' : ''
     }`
 
   return (
@@ -111,10 +114,21 @@ export function Header() {
                 <NavLink
                   to={link.to}
                   end={link.to === '/'}
-                  className={linkClass}
+                  className={({ isActive }) =>
+                    `eyebrow py-2 transition-colors hover:text-espresso ${
+                      isActive ? 'text-espresso' : ''
+                    }`
+                  }
                   onClick={(event) => handleNav(event, link)}
                 >
-                  <span className="block py-2">{link.label}</span>
+                  {({ isActive }) => (
+                    <span className="flex items-center gap-2 py-2">
+                      {/* Same "you are here" idea as the desktop underline,
+                          in the site's own idiom. */}
+                      {isActive && <LeafBullet className="text-sage" />}
+                      {link.label}
+                    </span>
+                  )}
                 </NavLink>
               </li>
             ))}

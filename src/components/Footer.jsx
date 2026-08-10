@@ -19,14 +19,14 @@ export function Footer() {
             <h2 className="eyebrow">Browse</h2>
             <ul className="mt-3 space-y-2 text-cream/80">
               <li>
-                <Link to="/" className="link-underline decoration-cream/30 hover:decoration-cream">
+                <Link to="/" className="link-underline">
                   Home
                 </Link>
               </li>
               <li>
                 <Link
                   to="/meet-raema"
-                  className="link-underline decoration-cream/30 hover:decoration-cream"
+                  className="link-underline"
                 >
                   Meet RaeMa
                 </Link>
@@ -34,7 +34,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/order"
-                  className="link-underline decoration-cream/30 hover:decoration-cream"
+                  className="link-underline"
                 >
                   Order &amp; Contact
                 </Link>
@@ -59,7 +59,7 @@ export function Footer() {
               <p className="mt-3">
                 <a
                   href={site.facebookUrl}
-                  className="link-underline decoration-cream/30 hover:decoration-cream"
+                  className="link-underline"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
