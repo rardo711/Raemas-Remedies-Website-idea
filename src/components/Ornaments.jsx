@@ -107,6 +107,30 @@ export function SeedDivider({ className = '' }) {
 }
 
 /**
+ * A pen squaring off a corner: two short strokes that meet and slightly
+ * overshoot, the way a drawn frame's corners overshoot. Position it
+ * absolutely inside a `relative` plate; flip with rotate utilities for the
+ * opposite corner. Reserved for the couple of "framed certificate" moments
+ * — on every card it would become a stamp.
+ */
+export function CornerTick({ className = '' }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={`h-6 w-6 ${className}`}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      <path d="M2.5 21.5C2.2 14 2.6 8.5 3.1 2.8" />
+      <path d="M2.8 3.1C9 2.4 15 2.7 21.5 2.5" />
+    </svg>
+  )
+}
+
+/**
  * The hero's "there's more below" arrow — drawn with the same nib as
  * HeartAndArrow, shaft not quite plumb. Static on purpose: a bouncing
  * chevron is the effect everyone ships; an arrow inked at the foot of the

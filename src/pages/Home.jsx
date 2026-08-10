@@ -6,6 +6,7 @@ import { BrandMark } from '../components/BrandMark'
 import { ProductCard } from '../components/ProductCard'
 import {
   BotanicalDivider,
+  CornerTick,
   HeartAndArrow,
   InkRule,
   LeafBullet,
@@ -176,7 +177,10 @@ export function Home() {
       {/* ── Stockist ─────────────────────────────────────────────────── */}
       <section aria-labelledby="stockist-heading">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-[5.5rem]">
-          <div className="double-rule grain set-c mx-auto max-w-2xl bg-parchment px-6 py-11 text-center sm:px-10">
+          <div className="double-rule grain set-c relative mx-auto max-w-2xl bg-parchment px-6 py-11 text-center sm:px-10">
+            {/* The pen squaring off two opposite corners of the frame. */}
+            <CornerTick className="absolute left-2 top-2 text-espresso/30" />
+            <CornerTick className="absolute bottom-2 right-2 rotate-180 text-espresso/30" />
             <p className="eyebrow">Also available in person</p>
             <h2
               id="stockist-heading"

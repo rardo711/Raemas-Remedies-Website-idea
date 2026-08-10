@@ -3,7 +3,12 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { formatPrice, products } from '../data/products'
 import { site, stockist } from '../data/site'
 import { usePageTitle } from '../components/Layout'
-import { HeartAndArrow, SeedDivider } from '../components/Ornaments'
+import {
+  CornerTick,
+  HeartAndArrow,
+  LeafBullet,
+  SeedDivider,
+} from '../components/Ornaments'
 
 const emptyQuantities = Object.fromEntries(products.map((p) => [p.id, 0]))
 
@@ -196,8 +201,10 @@ export function Order() {
           <div
             ref={successRef}
             tabIndex={-1}
-            className="double-rule grain bg-parchment px-6 py-12 text-center sm:px-10"
+            className="double-rule grain relative bg-parchment px-6 py-12 text-center sm:px-10"
           >
+            <CornerTick className="absolute left-2 top-2 text-espresso/30" />
+            <CornerTick className="absolute bottom-2 right-2 rotate-180 text-espresso/30" />
             <HeartAndArrow className="mx-auto text-sage" />
             <h2 className="mt-5 font-serif text-3xl">Thank you kindly</h2>
             <p className="mx-auto mt-4 max-w-prose leading-relaxed text-espresso/75">
@@ -252,9 +259,13 @@ export function Order() {
                   const checkboxId = `pick-${product.id}`
 
                   return (
+                    /* A picked row takes a soft sage wash and grows a leaf
+                       by its name, so the list doubles as the receipt. */
                     <li
                       key={product.id}
-                      className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 py-4"
+                      className={`flex flex-wrap items-center justify-between gap-x-4 gap-y-3 px-2 py-4 transition-colors duration-200 ${
+                        quantity > 0 ? 'bg-sage/10' : ''
+                      }`}
                     >
                       {/* min-w forces the stepper onto its own line on narrow
                           phones rather than squeezing long names to three. */}
@@ -266,14 +277,17 @@ export function Order() {
                           onChange={(event) =>
                             setQuantity(product.id, event.target.checked ? 1 : 0)
                           }
-                          className="mt-1 h-4 w-4 shrink-0 accent-sage"
+                          className="mt-1 h-4 w-4 shrink-0"
                         />
                         <label
                           htmlFor={checkboxId}
                           className="min-w-0 cursor-pointer"
                         >
-                          <span className="block font-serif text-lg leading-snug">
+                          <span className="flex items-center gap-2 font-serif text-lg leading-snug">
                             {product.name}
+                            {quantity > 0 && (
+                              <LeafBullet className="text-sage" />
+                            )}
                           </span>
                           <span className="block text-sm text-espresso/70">
                             {formatPrice(product.price)}
@@ -339,7 +353,7 @@ export function Order() {
                       value={option.value}
                       checked={fulfilment === option.value}
                       onChange={() => setFulfilment(option.value)}
-                      className="mt-1 h-4 w-4 shrink-0 accent-sage"
+                      className="mt-1 h-4 w-4 shrink-0"
                     />
                     <span>
                       <span className="block font-serif text-lg leading-snug">
