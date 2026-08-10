@@ -187,4 +187,11 @@ GitHub Pages serves static files with no rewrite rules, so a deep link like
   landmarks, labelled form controls, alt text on every image, and
   `prefers-reduced-motion` respected.
 - **Mobile-first**, verified at 375px.
+- **Old phones are covered.** `@vitejs/plugin-legacy` emits a second ES5 build
+  next to the modern one, reaching back to iOS 12 and Android 6. Current
+  phones download the modern bundle exactly as before and are unaffected;
+  only an old browser fetches the heavier legacy pair. Without it, Vite's
+  default target assumes Safari 14 and Chrome 87, and anything older sits on
+  the "Loading…" fallback forever, because a browser that cannot parse a
+  module script fails silently.
 - The FDA disclaimer renders in the footer, so it appears on every page.
