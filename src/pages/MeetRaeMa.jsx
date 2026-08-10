@@ -3,7 +3,12 @@ import { site } from '../data/site'
 import { getFamilyPhoto } from '../lib/assets'
 import { usePageTitle } from '../components/Layout'
 import { BrandMark } from '../components/BrandMark'
-import { BotanicalDivider, HeartAndArrow, Sprig } from '../components/Ornaments'
+import {
+  BotanicalDivider,
+  HeartAndArrow,
+  Sprig,
+  TinyHeart,
+} from '../components/Ornaments'
 
 export function MeetRaeMa() {
   usePageTitle('Meet RaeMa')
@@ -43,17 +48,22 @@ export function MeetRaeMa() {
           }
         >
           {familyPhoto ? (
-            <figure className="lg:sticky lg:top-24">
-              <div className="double-rule overflow-hidden">
+            /* Framed like a print in the family album: a parchment mat
+               inside the ruled frame, the whole thing set down a touch
+               crooked, with the caption pencilled underneath rather than
+               typeset. */
+            <figure className="set-b lg:sticky lg:top-24">
+              <div className="double-rule grain bg-parchment p-2 sm:p-3">
                 <img
                   src={familyPhoto}
                   alt={`${site.maker} with her family`}
-                  className="h-full w-full object-cover"
+                  className="block h-auto w-full"
                   decoding="async"
                 />
               </div>
-              <figcaption className="motto mt-3 text-center">
-                {site.maker} and family
+              <figcaption className="handnote mt-4 text-center">
+                {site.maker} and family{' '}
+                <TinyHeart className="text-espresso/60" />
               </figcaption>
             </figure>
           ) : null}
