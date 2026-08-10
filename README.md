@@ -122,6 +122,14 @@ shipping choice, and notes. A honeypot field is already in place for spam.
 Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the
 site and publishes it to GitHub Pages.
 
+**`deploy.yml` must stay the only workflow that publishes to Pages.** GitHub's
+Settings → Pages screen offers to add starter workflows for you — "Deploy
+static content to Pages" and "Deploy Jekyll…". Neither runs `npm run build`:
+they publish the repository as it sits, which serves the unbuilt `index.html`
+and produces a blank page. They also share the `pages` concurrency group with
+this workflow, so adding one means whichever finishes last wins the deploy.
+Decline the offer.
+
 One-time setup: **Settings → Pages → Build and deployment → Source →
 GitHub Actions**.
 
@@ -134,8 +142,15 @@ which means renaming the repository does not break the build.
 
 ### Troubleshooting: the live site is a blank white page
 
-Almost always one cause: **Pages is set to "Deploy from a branch" instead of
-"GitHub Actions".**
+Two causes, both of which end with the repository being served instead of the
+built output.
+
+**1. A second workflow won the deploy.** Check the Actions tab: if a run named
+"Deploy Jekyll…" or "Deploy static content to Pages" succeeded while "Deploy
+to GitHub Pages" shows *cancelled*, that is it — see the warning under
+Deploying above. Delete the extra workflow file and re-run `deploy.yml`.
+
+**2. Pages is set to "Deploy from a branch" instead of "GitHub Actions".**
 
 On "Deploy from a branch", GitHub serves the repository itself — so visitors
 get the unbuilt `index.html`, whose `<script src="/src/main.jsx">` is raw JSX
