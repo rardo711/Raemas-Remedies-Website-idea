@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { formatPrice } from '../data/products'
-import { ProductImage } from './ProductImage'
+import { PRODUCT_ASPECT, ProductImage } from './ProductImage'
 import { BuyButton } from './BuyButton'
 
 export function ProductCard({ product, priority = false }) {
@@ -15,7 +15,7 @@ export function ProductCard({ product, priority = false }) {
         <ProductImage
           product={product}
           priority={priority}
-          className="aspect-square w-full"
+          className={`w-full ${PRODUCT_ASPECT}`}
         />
       </Link>
 

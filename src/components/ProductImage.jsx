@@ -15,6 +15,13 @@ import { LeafBullet } from './Ornaments'
 const SAND = 'bg-[linear-gradient(160deg,#FBF8F1_0%,#F1E9DA_55%,#E8DDC8_100%)]'
 
 /**
+ * One frame shape for every product image, so cards stay on a tidy grid
+ * whether they're showing a photo or a stand-in. 3:4 because the photography
+ * is shot in portrait — a square frame would crop the tops off the bottles.
+ */
+export const PRODUCT_ASPECT = 'aspect-[3/4]'
+
+/**
  * Shaped like one of her labels rather than like a missing image: a ruled
  * plate carrying the motto, the product name, and the size. It reads as
  * intentional on a live site, and gets replaced the moment art or photography
@@ -124,14 +131,14 @@ export function ProductGallery({ product }) {
       <ProductImage
         product={product}
         priority
-        className="double-rule aspect-square w-full"
+        className={`double-rule w-full ${PRODUCT_ASPECT}`}
       />
     )
   }
 
   return (
     <div>
-      <div className={`double-rule aspect-square w-full overflow-hidden`}>
+      <div className={`double-rule w-full overflow-hidden ${PRODUCT_ASPECT}`}>
         <img
           src={photos[active]}
           alt={`${product.name}${product.size ? `, ${product.size}` : ''} — view ${active + 1} of ${photos.length}`}

@@ -54,26 +54,34 @@ exist.
 
 ---
 
-## Replacing the placeholder images
+## Images
 
-None of the artwork is in the repo yet, so every image slot currently falls
-back to a typographic stand-in. Nothing renders as a broken image, and no
-stock photography or external image URL is used anywhere.
+Product photography is in place — one shot per product, under
+`src/assets/products/<product-id>/`. The rest of the artwork is still missing,
+so those slots fall back to typographic stand-ins. Nothing renders as a broken
+image, and no stock photography or external image URL is used anywhere.
 
 **`public/assets/brand/README.md` lists every expected filename.** The short
 version:
 
-| Drop this file in | And it appears |
+| File | Status |
 | --- | --- |
-| `public/assets/brand/logo-main.png` | The emblem, in the header, footer, hero, and Meet RaeMa |
-| `public/assets/brand/favicon.png` | The browser tab icon (a square crop of the emblem) |
-| `public/assets/brand/labels/*.png` | Label artwork on cards and detail pages |
-| `src/assets/products/<product-id>/01-*.jpg` | Real product photography, replacing the label stand-in |
-| `src/assets/brand/raema-family.jpg` | The family photo on Meet RaeMa |
+| `src/assets/products/<product-id>/…` | ✅ Done — one photo per product |
+| `public/assets/brand/logo-main.png` | ❌ Needed — the emblem, in the header, footer, hero, and Meet RaeMa |
+| `public/assets/brand/favicon.png` | ❌ Needed — the browser tab icon, a square crop of the emblem |
+| `public/assets/brand/labels/*.png` | ❌ Needed — label artwork in the dark section of each detail page |
+| `src/assets/brand/raema-family.jpg` | ❌ Needed — the family photo on Meet RaeMa |
 
-Product photo folders must be named for the product's `id` in
-`src/data/products.js` (for example `src/assets/products/cowboy-cream/`).
-Photos sort by filename, so prefix them `01-`, `02-` to control gallery order.
+The emblem is the one that matters most: until `logo-main.png` exists, the
+header, hero, and footer show a plain typographic circle where the engraved
+mark belongs.
+
+To add more photos of a product, drop extra files into its folder. Folders are
+named for the product's `id` in `src/data/products.js` (for example
+`src/assets/products/cowboy-cream/`), files sort by filename, and a thumbnail
+strip appears automatically once a product has more than one. Resize to about
+1400px on the long edge first — phone originals are 2–3 MB each, which is far
+too heavy to ship.
 
 ---
 
