@@ -132,6 +132,30 @@ which means renaming the repository does not break the build.
 **Moving to a custom domain?** Set `BASE_PATH: /` in the workflow, and add a
 `public/CNAME` file containing the domain.
 
+### Troubleshooting: the live site is a blank white page
+
+Almost always one cause: **Pages is set to "Deploy from a branch" instead of
+"GitHub Actions".**
+
+On "Deploy from a branch", GitHub serves the repository itself — so visitors
+get the unbuilt `index.html`, whose `<script src="/src/main.jsx">` is raw JSX
+that no browser can run. Nothing renders, and the page is white.
+
+The tell is in the Actions tab: a **"pages build and deployment"** run
+succeeding while **"Deploy to GitHub Pages"** fails with
+
+> Get Pages site failed. Please verify that the repository has Pages enabled
+> and configured to build using GitHub Actions.
+
+The fix is the one-time setup above — **Settings → Pages → Build and
+deployment → Source → GitHub Actions** — then re-run "Deploy to GitHub Pages"
+from the Actions tab. This setting cannot be changed from inside the workflow;
+it has to be set in the repository settings.
+
+If instead the page shows "Loading…" and stops there, the HTML reached the
+browser but the JavaScript bundle did not — check the browser console for a
+404 and confirm `BASE_PATH` matches the repository name.
+
 ### Why the URLs have a `#` in them
 
 GitHub Pages serves static files with no rewrite rules, so a deep link like
