@@ -1,11 +1,12 @@
 /* Self-hosted so the site makes no third-party requests at runtime. */
-@import '@fontsource/playfair-display/400.css';
-@import '@fontsource/playfair-display/500.css';
-@import '@fontsource/playfair-display/700.css';
-@import '@fontsource/playfair-display/400-italic.css';
-@import '@fontsource/source-sans-3/300.css';
-@import '@fontsource/source-sans-3/400.css';
-@import '@fontsource/source-sans-3/600.css';
+@import '@fontsource/cormorant-garamond/400.css';
+@import '@fontsource/cormorant-garamond/500.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/400-italic.css';
+@import '@fontsource/cormorant-garamond/500-italic.css';
+@import '@fontsource/jost/300.css';
+@import '@fontsource/jost/400.css';
+@import '@fontsource/jost/500.css';
 
 @tailwind base;
 @tailwind components;
@@ -19,7 +20,8 @@
 
   body {
     @apply bg-cream text-espresso font-sans antialiased;
-    font-weight: 400;
+    font-weight: 300;
+    letter-spacing: 0.005em;
   }
 
   h1,
@@ -27,7 +29,10 @@
   h3,
   h4 {
     @apply font-serif;
+    font-weight: 500;
     text-wrap: balance;
+    /* Cormorant's default spacing opens up badly at display sizes. */
+    letter-spacing: -0.005em;
   }
 
   p {
@@ -54,8 +59,35 @@
 }
 
 @layer components {
-  /* The labels' signature frame: a hairline border with a second, inset
-     hairline a few pixels inside it. Applied to a positioned element. */
+  /*
+   * ── Paper ───────────────────────────────────────────────────────────
+   *
+   * A flat hex fill is the tell that a page was laid out on a screen and
+   * never touched paper. `.grain` lays a speckle of ink over whatever
+   * background the element already has — the SVG is mostly transparent, so
+   * the colour underneath still reads. It is a background-image rather than
+   * a blended overlay on purpose: no mix-blend-mode, no fixed layer, nothing
+   * that forces a repaint while scrolling on an old phone.
+   *
+   * `.grain-light` is the same speckle in cream, for the espresso sections.
+   */
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.13 0 0 0 0 0.11 0 0 0 0 0.09 0.5 0 0 0 -0.22'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+  }
+
+  .grain-light {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.94 0 0 0 0 0.91 0 0 0 0 0.85 0.42 0 0 0 -0.2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+  }
+
+  /*
+   * ── Hand-cut frames ─────────────────────────────────────────────────
+   *
+   * The labels' signature detail: a hairline border with a second hairline
+   * a few pixels inside it. On the printed labels that inner rule is not
+   * evenly inset — it sits a touch low and a touch right, the way a rule
+   * drawn by eye does. The insets below are deliberately unequal, and the
+   * whole frame carries a hair of rotation.
+   */
   .double-rule {
     @apply relative border border-espresso/25;
   }
@@ -63,8 +95,11 @@
   .double-rule::after {
     content: '';
     position: absolute;
-    inset: 4px;
-    border: 1px solid theme('colors.espresso' / 15%);
+    top: 4px;
+    right: 5px;
+    bottom: 5px;
+    left: 4px;
+    border: 1px solid theme('colors.espresso' / 14%);
     pointer-events: none;
   }
 
@@ -75,20 +110,48 @@
   .double-rule-sage::after {
     content: '';
     position: absolute;
-    inset: 4px;
-    border: 1px solid theme('colors.sage' / 30%);
+    top: 5px;
+    right: 4px;
+    bottom: 4px;
+    left: 5px;
+    border: 1px solid theme('colors.sage' / 28%);
     pointer-events: none;
+  }
+
+  /*
+   * ── Set by hand ─────────────────────────────────────────────────────
+   *
+   * Fractions of a degree, fixed per class rather than random, so the page
+   * looks the same on every load. Big enough that the eye registers "not
+   * quite square", small enough that nothing reads as broken. Anything that
+   * tilts must not also be the thing that clips its neighbours, so these go
+   * on cards and plates, never on a section wrapper.
+   */
+  .set-a {
+    transform: rotate(-0.35deg);
+  }
+
+  .set-b {
+    transform: rotate(0.4deg);
+  }
+
+  .set-c {
+    transform: rotate(-0.6deg);
+  }
+
+  .set-d {
+    transform: rotate(0.55deg);
   }
 
   /* Letterspaced small caps — eyebrows, the motto, section labels. */
   .eyebrow {
-    @apply font-sans text-[0.6875rem] uppercase tracking-eyebrow text-espresso/70;
-    font-weight: 600;
+    @apply font-sans text-[0.6875rem] uppercase tracking-eyebrow text-espresso/65;
+    font-weight: 500;
   }
 
   .motto {
-    @apply font-sans text-[0.625rem] uppercase tracking-motto text-espresso/65;
-    font-weight: 600;
+    @apply font-sans text-[0.625rem] uppercase tracking-motto text-espresso/60;
+    font-weight: 400;
   }
 
   .on-dark .eyebrow,
@@ -96,10 +159,34 @@
     @apply text-cream/60;
   }
 
+  /*
+   * A pencilled aside — the sort of thing written in the margin after the
+   * page was already laid out. Serif italic, off-axis, never in the flow of
+   * a column it would disturb.
+   */
+  .handnote {
+    @apply font-serif text-base italic leading-relaxed text-espresso/70;
+    transform: rotate(-0.7deg);
+  }
+
+  .on-dark .handnote {
+    @apply text-cream/70;
+  }
+
+  /*
+   * ── Buttons ─────────────────────────────────────────────────────────
+   *
+   * Square, letterspaced, and pressed rather than clicked: the 1px nudge on
+   * :active is the whole animation budget.
+   */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-sans text-sm
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3 font-sans text-[0.6875rem]
            uppercase tracking-eyebrow transition-colors duration-200;
-    font-weight: 600;
+    font-weight: 500;
+  }
+
+  .btn:active {
+    transform: translateY(1px);
   }
 
   .btn-primary {
@@ -107,7 +194,7 @@
   }
 
   .btn-secondary {
-    @apply btn border border-espresso/40 text-espresso hover:border-espresso hover:bg-espresso/5;
+    @apply btn border border-espresso/35 text-espresso hover:border-espresso/70 hover:bg-espresso/5;
   }
 
   .btn-on-dark {
@@ -116,7 +203,7 @@
 
   /* For the four-up grid, where the full-size button wraps to two lines. */
   .btn-compact {
-    @apply px-4 py-2.5 text-xs;
+    @apply px-4 py-2.5;
   }
 
   .link-underline {

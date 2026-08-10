@@ -3,9 +3,23 @@ import { formatPrice } from '../data/products'
 import { PRODUCT_ASPECT, ProductImage } from './ProductImage'
 import { BuyButton } from './BuyButton'
 
-export function ProductCard({ product, priority = false }) {
+/*
+ * The tilt cycle. Four fixed angles, picked by position in the grid rather
+ * than at random, so the page looks identical on every load — it just doesn't
+ * look ruled. `index` is the card's place in whatever list is rendering it;
+ * without one every card sits straight, which is the right default anywhere a
+ * card appears on its own.
+ */
+const TILTS = ['set-a', 'set-b', 'set-c', 'set-d']
+
+export function ProductCard({ product, priority = false, index = null }) {
+  const tilt = index === null ? '' : TILTS[index % TILTS.length]
+
   return (
-    <article className="double-rule group flex flex-col bg-parchment transition-shadow duration-200 hover:shadow-[0_2px_20px_rgba(33,28,22,0.08)]">
+    <article
+      className={`double-rule grain group flex flex-col bg-parchment transition-[transform,box-shadow] duration-300
+                  hover:!rotate-0 hover:shadow-[0_3px_22px_rgba(33,28,22,0.09)] ${tilt}`}
+    >
       <Link
         to={`/product/${product.id}`}
         className="block"
@@ -20,10 +34,10 @@ export function ProductCard({ product, priority = false }) {
       </Link>
 
       <div className="flex flex-1 flex-col p-5 pt-4">
-        <h3 className="font-serif text-xl leading-snug">
+        <h3 className="font-serif text-2xl leading-snug">
           <Link
             to={`/product/${product.id}`}
-            className="transition-colors hover:text-espresso/70"
+            className="transition-colors hover:text-espresso/65"
           >
             {product.name}
           </Link>
@@ -33,14 +47,12 @@ export function ProductCard({ product, priority = false }) {
           {product.summary}
         </p>
 
-        <p className="mt-4 flex items-baseline gap-2 font-serif text-lg">
+        <p className="mt-4 flex items-baseline gap-2.5 font-serif text-xl">
           {formatPrice(product.price)}
-          {product.size ? (
-            <span className="motto">{product.size}</span>
-          ) : null}
+          {product.size ? <span className="motto">{product.size}</span> : null}
         </p>
 
-        <div className="mt-4 flex flex-col gap-2">
+        <div className="mt-5 flex flex-col gap-2">
           <BuyButton product={product} className="btn-compact w-full" />
           <Link
             to={`/product/${product.id}`}

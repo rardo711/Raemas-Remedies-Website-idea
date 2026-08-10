@@ -72,7 +72,7 @@ version:
 
 Both the emblem and the labels arrived on solid backgrounds — warm cream and
 white respectively — which would have shown as visible boxes against the
-site's `#F5F0E6` and against the espresso sections. Both were keyed to
+site's `#EFE7D8` and against the espresso sections. Both were keyed to
 transparency. `public/assets/brand/README.md` explains the method, which
 matters if you ever supply replacement artwork.
 
@@ -179,10 +179,54 @@ GitHub Pages serves static files with no rewrite rules, so a deep link like
 
 ---
 
+## Look and feel
+
+Two decisions drive everything visual, and both are worth knowing before you
+change anything.
+
+**The page is not white.** The ground is `#EFE7D8` — the warm oat the Fire
+Cider label is actually printed on, not a paper-white approximation of it. Card
+faces lift half a step to `#F6F0E4` (`parchment`), bands that need to recede
+drop to `#E5DAC6` (`oat`), and the ink stays `#211C16` (`espresso`) with
+`#8A9B7C` (`sage`) and `#D9C7A9` (`tan`) as the only accents. All six live in
+`theme.extend.colors` in `tailwind.config.js`; nothing hard-codes a hex except
+the three hero gradients, which are noted where they sit.
+
+**It is meant to look made, not generated.** A page where every rule is
+straight, every card is square to the grid, and every fill is a flat hex reads
+as software output, which is the wrong impression for a kitchen operation in
+Tattnall County. So, deliberately:
+
+- `.grain` and `.grain-light` (`src/index.css`) lay a speckle of ink over
+  whatever background an element already has. It is a background-image, not a
+  blended overlay — no `mix-blend-mode`, no fixed layer, nothing that repaints
+  while an old phone is scrolling.
+- `.set-a` through `.set-d` tilt things by fractions of a degree. The angles
+  are **fixed and chosen by position**, never random, so the page looks
+  identical on every load — it just doesn't look ruled. `ProductCard` takes an
+  `index` prop for this; a card rendered without one sits straight, which is
+  the right default anywhere a card appears alone.
+- The inner hairline of `.double-rule` is inset unevenly (4px one side, 5px the
+  other), the way a rule drawn by eye is.
+- `InkRule` in `Ornaments.jsx` is a line that wasn't drawn against a straight
+  edge. The ornaments in that file are all slightly asymmetric — one leaf
+  fatter than its partner, a seed dot further out than the one opposite. That
+  is the whole reason they read as engraving rather than clip art.
+- `.handnote` is a pencilled aside: serif italic, a degree off axis, used for
+  the sort of remark added after the page was already laid out.
+
+Keep these subtle if you extend them. Nothing here should be noticeable on its
+own — the tilts are under a degree and the grain is a few percent alpha. The
+moment one of them announces itself it stops reading as a hand and starts
+reading as an effect.
+
 ## Notes on the build
 
-- **Fonts are self-hosted** (Playfair Display and Source Sans 3, via
-  `@fontsource`), so the site makes no third-party requests at runtime.
+- **Fonts are self-hosted** (Cormorant Garamond and Jost, via `@fontsource`),
+  so the site makes no third-party requests at runtime. Both are declared in
+  one place — `fontFamily` in `tailwind.config.js` — with the matching
+  `@import` lines at the top of `src/index.css`. Swapping either one is those
+  two edits and nothing else.
 - **Accessibility**: skip link, visible keyboard focus throughout, semantic
   landmarks, labelled form controls, alt text on every image, and
   `prefers-reduced-motion` respected.

@@ -14,11 +14,11 @@ export function MeetRaeMa() {
 
   return (
     <>
-      <section className="bg-[radial-gradient(ellipse_at_50%_0%,#FBF8F1_0%,#F5F0E6_70%)]">
+      <section className="grain bg-[radial-gradient(ellipse_at_50%_-10%,#F7F1E6_0%,#EFE7D8_70%)]">
         <div className="mx-auto max-w-3xl px-4 py-14 text-center sm:px-6 sm:py-20">
-          <BrandMark size={104} className="mx-auto" />
+          <BrandMark size={104} className="set-a mx-auto" />
           <p className="eyebrow mt-6">Tattnall County, Georgia</p>
-          <h1 className="mt-3 font-serif text-4xl sm:text-5xl">Meet RaeMa</h1>
+          <h1 className="mt-3 font-serif text-5xl sm:text-6xl">Meet RaeMa</h1>
           <p className="motto mt-4">{site.motto}</p>
           <BotanicalDivider className="mt-7 text-espresso/50" />
         </div>

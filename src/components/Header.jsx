@@ -40,16 +40,17 @@ export function Header() {
     }`
 
   return (
-    <header className="sticky top-0 z-50 border-b border-espresso/10 bg-cream/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-espresso/10 bg-cream/92 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link
           to="/"
           className="flex items-center gap-3"
           aria-label={`${site.name} — home`}
         >
-          <BrandMark size={48} />
+          {/* A hair off true, like a stamp pressed by hand. */}
+          <BrandMark size={48} className="set-b" />
           <span className="leading-none">
-            <span className="block font-serif text-lg sm:text-xl">
+            <span className="block font-serif text-xl sm:text-2xl">
               RaeMa&rsquo;s Remedies
             </span>
             <span className="motto mt-1 hidden sm:block">{site.motto}</span>
