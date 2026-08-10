@@ -14,7 +14,7 @@ export function MeetRaeMa() {
 
   return (
     <>
-      <section className="grain bg-[radial-gradient(ellipse_at_50%_-10%,#F7F1E6_0%,#EFE7D8_70%)]">
+      <section className="grain bg-[radial-gradient(ellipse_at_50%_-10%,#F6F4E9_0%,#EDEBDC_70%)]">
         <div className="mx-auto max-w-3xl px-4 py-14 text-center sm:px-6 sm:py-20">
           <BrandMark size={104} className="set-a mx-auto" />
           <p className="eyebrow mt-6">Tattnall County, Georgia</p>

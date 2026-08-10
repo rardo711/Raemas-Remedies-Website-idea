@@ -77,6 +77,60 @@ export function BotanicalDivider({ className = '', width = 'w-full' }) {
 }
 
 /**
+ * A quieter section mark for pages that shouldn't repeat the botanical
+ * divider: a short rule that stops early, then three seeds scattered after
+ * it, none the same size and none on the same line. Two different marks
+ * across the site reads like two moments of the same hand; one identical
+ * mark everywhere reads like a stamp.
+ */
+export function SeedDivider({ className = '' }) {
+  return (
+    <div
+      className={`flex items-center justify-center ${className}`}
+      aria-hidden="true"
+    >
+      <svg
+        viewBox="0 0 160 12"
+        className="h-3 w-40"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+      >
+        <path d="M8 6.3C30 5.5 58 6.4 86 5.8" opacity="0.4" />
+        <circle cx="104" cy="5.9" r="1.6" fill="currentColor" stroke="none" opacity="0.55" />
+        <circle cx="122" cy="6.8" r="1.1" fill="currentColor" stroke="none" opacity="0.45" />
+        <circle cx="143" cy="5.4" r="1.4" fill="currentColor" stroke="none" opacity="0.5" />
+      </svg>
+    </div>
+  )
+}
+
+/**
+ * The hero's "there's more below" arrow — drawn with the same nib as
+ * HeartAndArrow, shaft not quite plumb. Static on purpose: a bouncing
+ * chevron is the effect everyone ships; an arrow inked at the foot of the
+ * page is an invitation.
+ */
+export function ScrollCue({ className = '' }) {
+  return (
+    <svg
+      viewBox="0 0 24 34"
+      className={`h-8 w-6 ${className}`}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M12.6 2C11.8 9 12.5 16 11.9 27.5" />
+      <path d="M6.8 22.6C8.6 24.8 10.4 26.9 11.9 28.6C13.6 26.6 15.4 24.4 17.4 22.2" />
+    </svg>
+  )
+}
+
+/**
  * The small heart-and-arrow mark from the labels. Used as a section break and
  * as a full stop at the end of the footer.
  */

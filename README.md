@@ -72,7 +72,7 @@ version:
 
 Both the emblem and the labels arrived on solid backgrounds — warm cream and
 white respectively — which would have shown as visible boxes against the
-site's `#EFE7D8` and against the espresso sections. Both were keyed to
+site's `#EDEBDC` and against the espresso sections. Both were keyed to
 transparency. `public/assets/brand/README.md` explains the method, which
 matters if you ever supply replacement artwork.
 
@@ -184,10 +184,11 @@ GitHub Pages serves static files with no rewrite rules, so a deep link like
 Two decisions drive everything visual, and both are worth knowing before you
 change anything.
 
-**The page is not white.** The ground is `#EFE7D8` — the warm oat the Fire
-Cider label is actually printed on, not a paper-white approximation of it. Card
-faces lift half a step to `#F6F0E4` (`parchment`), bands that need to recede
-drop to `#E5DAC6` (`oat`), and the ink stays `#211C16` (`espresso`) with
+**The page is not white.** The ground is `#EDEBDC` — the warm oat of the
+Fire Cider label nudged toward sage, so the whole page carries a mild green
+cast without any section being "the green one". Card
+faces lift half a step to `#F6F4E9` (`parchment`), bands that need to recede
+drop to `#E0DEC8` (`oat`), and the ink stays `#211C16` (`espresso`) with
 `#8A9B7C` (`sage`) and `#D9C7A9` (`tan`) as the only accents — plus
 `#5C694D` (`moss`), sage taken down to where cream text passes contrast,
 worn only by the buy button. All six live in

@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { formatPrice, products } from '../data/products'
 import { site, stockist } from '../data/site'
 import { usePageTitle } from '../components/Layout'
-import { BotanicalDivider, HeartAndArrow } from '../components/Ornaments'
+import { HeartAndArrow, SeedDivider } from '../components/Ornaments'
 
 const emptyQuantities = Object.fromEntries(products.map((p) => [p.id, 0]))
 
@@ -177,7 +177,7 @@ export function Order() {
 
   return (
     <>
-      <section className="grain bg-[radial-gradient(ellipse_at_50%_-10%,#F7F1E6_0%,#EFE7D8_70%)]">
+      <section className="grain bg-[radial-gradient(ellipse_at_50%_-10%,#F6F4E9_0%,#EDEBDC_70%)]">
         <div className="mx-auto max-w-3xl px-4 py-14 text-center sm:px-6 sm:py-16">
           <p className="eyebrow">Local pickup or shipping</p>
           <h1 className="mt-3 font-serif text-4xl sm:text-5xl">
@@ -187,7 +187,7 @@ export function Order() {
             Tell RaeMa what you&rsquo;d like and she&rsquo;ll get back to you to
             sort out payment and pickup.
           </p>
-          <BotanicalDivider className="mt-7 text-espresso/50" />
+          <SeedDivider className="mt-7 text-sage" />
         </div>
       </section>
 
@@ -302,9 +302,9 @@ export function Order() {
                   {formatPrice(total)}
                 </span>
               </div>
-              <p className="mt-2 text-xs text-espresso/70">
-                Shipping isn&rsquo;t included in this total. RaeMa will confirm
-                everything with you before any payment.
+              <p className="handnote mt-3 origin-left text-sm">
+                Shipping isn&rsquo;t included in this total &mdash; RaeMa will
+                confirm everything with you before any payment.
               </p>
             </fieldset>
 

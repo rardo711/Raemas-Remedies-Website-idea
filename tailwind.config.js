@@ -11,12 +11,14 @@ export default {
          * so the label scans stop looking like bright rectangles pasted onto
          * a page.
          */
-        cream: '#EFE7D8',
+        // Nudged from the pure label-oat toward sage: green channel up, red
+        // down. Still reads cream — the sage is a cast, not a colour.
+        cream: '#EDEBDC',
         // A half-step lighter, for card faces that need to lift off the page
         // without introducing a second hue.
-        parchment: '#F6F0E4',
+        parchment: '#F6F4E9',
         // Deeper still, for bands that need to recede.
-        oat: '#E5DAC6',
+        oat: '#E0DEC8',
         espresso: '#211C16',
         tan: '#D9C7A9',
         sage: '#8A9B7C',

@@ -9,6 +9,7 @@ import {
   HeartAndArrow,
   InkRule,
   LeafBullet,
+  ScrollCue,
   Sprig,
 } from '../components/Ornaments'
 
@@ -22,7 +23,7 @@ export function Home() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <section className="grain relative overflow-hidden bg-[radial-gradient(ellipse_at_50%_-10%,#F7F1E6_0%,#EFE7D8_52%,#E5DAC6_100%)]">
+      <section className="grain relative overflow-hidden bg-[radial-gradient(ellipse_at_50%_-10%,#F6F4E9_0%,#EDEBDC_52%,#E0DEC8_100%)]">
         {/* Laurel sprigs from the emblem, stood up either side of the
             headline. They're bounded to their own column rather than to the
             viewport, so on a wide monitor they stay beside the words instead
@@ -71,6 +72,17 @@ export function Home() {
               Meet RaeMa
             </Link>
           </div>
+
+          {/* An inked arrow rather than an animated chevron — the "there's
+              more below" cue, in the same nib as everything else. */}
+          <button
+            type="button"
+            onClick={scrollToRemedies}
+            aria-label="Scroll to the remedies"
+            className="mx-auto mt-10 block text-espresso/40 transition-colors hover:text-espresso/75"
+          >
+            <ScrollCue className="set-b" />
+          </button>
         </div>
       </section>
 
