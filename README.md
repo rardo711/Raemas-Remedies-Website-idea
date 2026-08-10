@@ -56,25 +56,25 @@ exist.
 
 ## Images
 
-Product photography is in place — one shot per product, under
-`src/assets/products/<product-id>/`. The rest of the artwork is still missing,
-so those slots fall back to typographic stand-ins. Nothing renders as a broken
-image, and no stock photography or external image URL is used anywhere.
+The emblem, three label variants, and one photo per product are all in place.
+Remaining slots fall back to typographic stand-ins, so nothing renders as a
+broken image, and no stock photography or external image URL is used anywhere.
 
 **`public/assets/brand/README.md` lists every expected filename.** The short
 version:
 
 | File | Status |
 | --- | --- |
-| `src/assets/products/<product-id>/…` | ✅ Done — one photo per product |
-| `public/assets/brand/logo-main.png` | ❌ Needed — the emblem, in the header, footer, hero, and Meet RaeMa |
-| `public/assets/brand/favicon.png` | ❌ Needed — the browser tab icon, a square crop of the emblem |
-| `public/assets/brand/labels/*.png` | ❌ Needed — label artwork in the dark section of each detail page |
+| `public/assets/brand/logo-main.png` + `logo-cream.png` + `favicon.png` | ✅ The emblem, in her ink, in cream for the footer, and as a tab icon |
+| `src/assets/products/<product-id>/…` | ✅ One photo per product |
+| `public/assets/brand/labels/…` | ◐ Cowboy Cream dark, Fire Cider dark and cream |
 | `src/assets/brand/raema-family.jpg` | ❌ Needed — the family photo on Meet RaeMa |
 
-The emblem is the one that matters most: until `logo-main.png` exists, the
-header, hero, and footer show a plain typographic circle where the engraved
-mark belongs.
+Both the emblem and the labels arrived on solid backgrounds — warm cream and
+white respectively — which would have shown as visible boxes against the
+site's `#F5F0E6` and against the espresso sections. Both were keyed to
+transparency. `public/assets/brand/README.md` explains the method, which
+matters if you ever supply replacement artwork.
 
 To add more photos of a product, drop extra files into its folder. Folders are
 named for the product's `id` in `src/data/products.js` (for example

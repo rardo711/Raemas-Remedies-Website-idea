@@ -45,11 +45,11 @@ export function BrandMark({ size = 96, className = '', tone = 'light' }) {
 
   return (
     <img
-      src={brandAsset.logo}
+      src={onDark ? brandAsset.logoOnDark : brandAsset.logo}
       onError={() => setFailed(true)}
       width={size}
       height={size}
-      className={`shrink-0 rounded-full object-contain ${className}`}
+      className={`shrink-0 object-contain ${className}`}
       style={{ width: size, height: size }}
       alt={`${site.name} emblem: a grazing cow, mason jar, and mortar and pestle framed by botanical laurels, with the motto ${site.motto}`}
     />

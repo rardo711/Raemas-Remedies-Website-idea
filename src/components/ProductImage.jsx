@@ -112,7 +112,7 @@ export function DarkLabelArt({ product, onUnavailable, className = '' }) {
       alt={`The dark printed label for ${product.name}`}
       loading="lazy"
       decoding="async"
-      className={`w-full max-w-xs object-contain ${className}`}
+      className={`w-full max-w-lg object-contain ${className}`}
     />
   )
 }

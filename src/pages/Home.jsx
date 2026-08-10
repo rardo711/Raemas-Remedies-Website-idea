@@ -18,8 +18,8 @@ export function Home() {
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_50%_0%,#FBF8F1_0%,#F5F0E6_55%,#EFE7D6_100%)]">
         <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-24">
-          <BrandMark size={148} className="mx-auto sm:hidden" />
-          <BrandMark size={196} className="mx-auto hidden sm:block" />
+          <BrandMark size={190} className="mx-auto sm:hidden" />
+          <BrandMark size={280} className="mx-auto hidden sm:block" />
 
           <p className="motto mt-8">{site.motto}</p>
 

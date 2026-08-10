@@ -53,7 +53,8 @@ export const products = [
       'For external use only. Do not use on puncture wounds or bones not professionally set.',
     checkoutUrl: '',
     labelArt: {
-      cream: 'cowboy-cream-cream.png',
+      // No cream scan yet — add the file and name it here.
+      cream: null,
       dark: 'cowboy-cream-dark.png',
     },
   },
@@ -129,10 +130,9 @@ export const products = [
     notice:
       'Consult your healthcare provider before using herbal products if pregnant, nursing, taking medications, or under medical care.',
     checkoutUrl: '',
-    labelArt: {
-      cream: 'mullein-tincture-cream.png',
-      dark: 'mullein-tincture-dark.png',
-    },
+    // No label scans yet. Add them to public/assets/brand/labels/ and set
+    // this to { cream: '…', dark: '…' } to light up the dark section.
+    labelArt: null,
   },
 ]
 

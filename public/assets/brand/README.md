@@ -1,11 +1,31 @@
-# Brand artwork — drop the real files here
+# Brand artwork
 
-Product photography is now in place. **The emblem and the label scans are still
-missing.** The site is already wired to the exact paths below: add a file and it
-appears on the next build, with no code change. Until then each slot falls back
-to a plain typographic stand-in, so nothing ever renders as a broken image.
+The emblem, three label variants, and all four product photos are in place.
+What's left is listed under "Still missing" below. The site is wired to the
+exact paths here: add a file and it appears on the next build, with no code
+change. Missing slots fall back to a typographic stand-in, so nothing ever
+renders as a broken image.
 
 Do not replace these with stock photography or hotlinked images.
+
+## The emblem — done
+
+| File | Used for |
+| --- | --- |
+| `logo-main.png` | Her ink, transparent background. Header, hero, Meet RaeMa. |
+| `logo-cream.png` | The same mark recoloured cream, for the espresso footer. |
+| `favicon.png` | 180×180 browser-tab icon on a solid cream ground. |
+
+All three are derived from the supplied artwork. The original had a warm cream
+background (`#F7EBDD`) that would have shown as a visible box against the
+site's `#F5F0E6`, so the background was keyed out by mapping luminance to
+alpha — the artwork is monochrome line work, so ink coverage and brightness
+are the same measurement. That also clears the counters inside letterforms,
+which a flood fill would have left as cream specks on the dark footer.
+
+`logo-cream.png` is the identical alpha channel with the ink recoloured, since
+dark ink is invisible on espresso. **If you supply new emblem artwork, all
+three files need regenerating together** — not just `logo-main.png`.
 
 ## Required — still missing
 
@@ -14,34 +34,47 @@ Do not replace these with stock photography or hotlinked images.
 | `logo-main.png` | The circular engraved emblem. Header, footer, hero, Meet RaeMa. Transparent PNG, at least 400×400. |
 | `favicon.png` | A square crop of just the emblem from `logo-main.png`, 180×180. Referenced from `index.html`. |
 
-The emblem appears on the lid in the Cowboy Cream photo, but that is a sunlit
-shot of a curved lid — it is not usable as the site's identity mark. A clean
-export of the original artwork is what's needed.
+Only `raema-family.jpg` is still outstanding — see the photography section.
 
-## Label artwork — still missing
+## Label artwork
 
 Goes in `labels/`. Filenames are read from the `labelArt` field in
-`src/data/products.js` — rename there if yours differ.
+`src/data/products.js`, so a file only appears once it is named there.
 
-Now that real photography exists, these are used only for the dark section on
-each product detail page. Cards and galleries use the photos.
+Now that real photography exists, labels are used only in the near-black
+section of each product detail page — the **dark** variant. Cards and galleries
+use the photos. The **cream** variants are kept as the fallback for a product
+that has no photo yet.
 
-| File | Product |
-| --- | --- |
-| `labels/cowboy-cream-cream.png` | Cowboy Cream, cream variant |
-| `labels/cowboy-cream-dark.png` | Cowboy Cream, dark variant |
-| `labels/fire-cider-cream.png` | RaeMa's Fire Cider, cream variant |
-| `labels/fire-cider-dark.png` | RaeMa's Fire Cider, dark variant |
-| `labels/mullein-tincture-cream.png` | Mullein Tincture, cream variant |
-| `labels/mullein-tincture-dark.png` | Mullein Tincture, dark variant |
+| File | Product | Status |
+| --- | --- | --- |
+| `labels/cowboy-cream-dark.png` | Cowboy Cream, dark | ✅ |
+| `labels/fire-cider-dark.png` | RaeMa's Fire Cider, dark | ✅ |
+| `labels/fire-cider-cream.png` | RaeMa's Fire Cider, cream | ✅ |
+| `labels/cowboy-cream-cream.png` | Cowboy Cream, cream | ❌ |
+| `labels/mullein-tincture-dark.png` | Mullein Tincture, dark | ❌ |
+| `labels/mullein-tincture-cream.png` | Mullein Tincture, cream | ❌ |
+| `labels/whipped-tallow-*.png` | Not Your Mama's Whipped Tallow | ❌ |
 
-The **cream** variants stand in for product photography on the cards and detail
-pages until real photos exist. The **dark** variants appear once per detail
-page, in the near-black section.
+A product with no dark label simply gets a centred text-only dark section —
+that is what Mullein Tincture and the whipped tallow do today, and it looks
+deliberate rather than broken.
 
-Not Your Mama's Whipped Tallow has no label artwork yet; its card uses the
-typographic treatment. Add `labels/whipped-tallow-cream.png` and point
-`labelArt` at it in `src/data/products.js` when one exists.
+### Preparing a new label scan
+
+The supplied labels came on a solid white field, which would show as a white
+box on cream and, worse, on the espresso section. That surround was removed by
+flooding inward from the border, stopped by the label's own rounded-rect rule
+so the label body stays intact.
+
+Two details matter if you redo this by hand: near-white pixels need to go
+**fully** transparent rather than keeping a few percent of alpha, or a pale
+halo appears against espresso; and the anti-aliased boundary pixels need
+un-premultiplying — recovering the ink colour from the white-blended pixel —
+or the edge fringes grey instead of dark.
+
+Easiest path: export with a transparent background from the original design
+file and skip all of that.
 
 ## Photography and the family photo
 

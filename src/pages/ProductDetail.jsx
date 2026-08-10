@@ -134,7 +134,7 @@ export function ProductDetail() {
             key={product.id}
             product={product}
             onUnavailable={noteMissingLabel}
-            className="mx-auto md:mx-0 md:w-2/5"
+            className="mx-auto md:mx-0 md:w-1/2"
           />
 
           <div className={hasDarkLabel ? 'md:flex-1' : 'mx-auto max-w-2xl'}>

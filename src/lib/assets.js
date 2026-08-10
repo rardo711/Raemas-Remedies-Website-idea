@@ -22,7 +22,10 @@ export function publicAsset(path) {
 }
 
 export const brandAsset = {
+  // The emblem is line art with a keyed-out background, so it needs a
+  // light-ink and a dark-ink cut rather than one file over both grounds.
   logo: publicAsset('assets/brand/logo-main.png'),
+  logoOnDark: publicAsset('assets/brand/logo-cream.png'),
   label: (filename) => publicAsset(`assets/brand/labels/${filename}`),
 }
 
