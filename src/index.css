@@ -1,0 +1,142 @@
+/* Self-hosted so the site makes no third-party requests at runtime. */
+@import '@fontsource/playfair-display/400.css';
+@import '@fontsource/playfair-display/500.css';
+@import '@fontsource/playfair-display/700.css';
+@import '@fontsource/playfair-display/400-italic.css';
+@import '@fontsource/source-sans-3/300.css';
+@import '@fontsource/source-sans-3/400.css';
+@import '@fontsource/source-sans-3/600.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream text-espresso font-sans antialiased;
+    font-weight: 400;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* One focus ring for the whole site. Visible against cream and espresso
+     alike, which is why it is drawn with two offset shadows rather than a
+     single outline colour. */
+  :focus-visible {
+    outline: 2px solid theme('colors.espresso');
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .on-dark :focus-visible {
+    outline-color: theme('colors.cream');
+  }
+
+  ::selection {
+    background: theme('colors.sage');
+    color: theme('colors.cream');
+  }
+}
+
+@layer components {
+  /* The labels' signature frame: a hairline border with a second, inset
+     hairline a few pixels inside it. Applied to a positioned element. */
+  .double-rule {
+    @apply relative border border-espresso/25;
+  }
+
+  .double-rule::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid theme('colors.espresso' / 15%);
+    pointer-events: none;
+  }
+
+  .double-rule-sage {
+    @apply relative border border-sage/50;
+  }
+
+  .double-rule-sage::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid theme('colors.sage' / 30%);
+    pointer-events: none;
+  }
+
+  /* Letterspaced small caps — eyebrows, the motto, section labels. */
+  .eyebrow {
+    @apply font-sans text-[0.6875rem] uppercase tracking-eyebrow text-espresso/70;
+    font-weight: 600;
+  }
+
+  .motto {
+    @apply font-sans text-[0.625rem] uppercase tracking-motto text-espresso/65;
+    font-weight: 600;
+  }
+
+  .on-dark .eyebrow,
+  .on-dark .motto {
+    @apply text-cream/60;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-sans text-sm
+           uppercase tracking-eyebrow transition-colors duration-200;
+    font-weight: 600;
+  }
+
+  .btn-primary {
+    @apply btn bg-espresso text-cream hover:bg-espresso/85;
+  }
+
+  .btn-secondary {
+    @apply btn border border-espresso/40 text-espresso hover:border-espresso hover:bg-espresso/5;
+  }
+
+  .btn-on-dark {
+    @apply btn border border-cream/40 text-cream hover:border-cream hover:bg-cream/10;
+  }
+
+  /* For the four-up grid, where the full-size button wraps to two lines. */
+  .btn-compact {
+    @apply px-4 py-2.5 text-xs;
+  }
+
+  .link-underline {
+    @apply underline decoration-espresso/30 underline-offset-4
+           transition-colors hover:decoration-espresso;
+  }
+}
+
+/* Honour the OS setting rather than animating regardless. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
